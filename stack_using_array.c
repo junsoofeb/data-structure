@@ -3,6 +3,22 @@
 int stact_array[100];//array of size 100
 int t = 0; // t  == (index of stack_top) + 1
 
+int pop();
+void push(int x);
+void print_stack();
+
+int main()
+{
+	pop();
+	push('a');
+	push('b');
+	push('c');
+	print_stack();
+
+	return;
+}
+
+
 int pop()
 {
 	if (t < 1)
@@ -24,25 +40,14 @@ void push(int x)
 	}
 
 	stact_array[t] = x;
-	t = t + 1;
+	t = t + 1; 
 }
 
-void print_array()
+void print_stack()
 {
 	int i;
 	for (i = 0; i < t; i++)
 	{
 		printf("stack index : %d     item : %c\n", i, stact_array[i]);
 	}
-}
-
-int main()
-{
-	pop();
-	push('a');
-	push('b');
-	push('c');
-	print_array();
-
-	return;
 }
