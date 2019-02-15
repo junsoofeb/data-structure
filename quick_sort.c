@@ -12,7 +12,7 @@ void quicksort(int arr[], int l, int r);
 unsigned int data[M]; // 원본 데이터 저장할 배열
 unsigned int data0[M]; // 정렬용 데이터 저장할 배열
 
-int main()
+int main() 
 {
 	int i;
 	time_t t;
@@ -39,7 +39,7 @@ int main()
 	for (i = 0; i < 100; i++)
 		data0[i] = data[i];
 
-	quicksort(data0,0,99);
+	quicksort(data0, 0, M-1);
 
 	printf("정렬 후 >> \n");
 	for (i = 0; i < 100; i++)
@@ -52,10 +52,10 @@ int main()
 }
 
 
-void swap(int *x, int *y)
 {
 	int temp = *x;
 	*x = *y;
+void swap(int *x, int *y)
 	*y = temp;
 }
 
