@@ -2,15 +2,15 @@
 #include <stdlib.h>
 #include <time.h>
 
-#define M 100 //MÀº ¼ýÀÚÀÇ °³¼ö
+#define M 100 //Mì€ ìˆ«ìžì˜ ê°œìˆ˜
 
 void swap(int *x, int *y);
 int partition(int arr[], int l, int r);
 void quicksort(int arr[], int l, int r);
 
 
-unsigned int data[M]; // ¿øº» µ¥ÀÌÅÍ ÀúÀåÇÒ ¹è¿­
-unsigned int data0[M]; // Á¤·Ä¿ë µ¥ÀÌÅÍ ÀúÀåÇÒ ¹è¿­
+unsigned int data[M]; // ì›ë³¸ ë°ì´í„° ì €ìž¥í•  ë°°ì—´
+unsigned int data0[M]; // ì •ë ¬ìš© ë°ì´í„° ì €ìž¥í•  ë°°ì—´
 
 int main() 
 {
@@ -23,10 +23,10 @@ int main()
 		data[i] = rand();
 
 
-	printf("%d°³ÀÇ ³­¼ö »ý¼º\n", M);
+	printf("%dê°œì˜ ë‚œìˆ˜ ìƒì„±\n", M);
 
-	printf("Á¤·Ä Àü >> \n");
-	for (i = 0; i < 100; i++)
+	printf("ì •ë ¬ ì „ >> \n");
+	for (i = 0; i < M; i++)
 	{
 		printf("%6d ", data[i]);
 		if ((i % 10 == 9))
@@ -35,14 +35,14 @@ int main()
 	printf("\n\n");
 
 
-	// ¿øº» µ¥ÀÌÅÍ¿¡¼­ Á¤·Ä¿ëµµÀÇ µ¥ÀÌÅÍ·Î º¹»ç
-	for (i = 0; i < 100; i++)
+	// ì›ë³¸ ë°ì´í„°ì—ì„œ ì •ë ¬ìš©ë„ì˜ ë°ì´í„°ë¡œ ë³µì‚¬
+	for (i = 0; i < M; i++)
 		data0[i] = data[i];
 
 	quicksort(data0, 0, M-1);
 
-	printf("Á¤·Ä ÈÄ >> \n");
-	for (i = 0; i < 100; i++)
+	printf("ì •ë ¬ í›„ >> \n");
+	for (i = 0; i < M; i++)
 	{
 		printf("%6d ", data0[i]);
 		if (i % 10 == 9)
@@ -51,11 +51,10 @@ int main()
 	printf("\n");
 }
 
-
+void swap(int *x, int *y)
 {
 	int temp = *x;
 	*x = *y;
-void swap(int *x, int *y)
 	*y = temp;
 }
 
