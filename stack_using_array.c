@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int stact_array[100];//array of size 100
+int stack_array[100];//array of size 100
 int t = 0; // t  == (index of stack_top) + 1
 
 int pop();
@@ -28,7 +28,7 @@ int pop()
 	}
 
 	t = t - 1;
-	return stact_array[t];
+	return stack_array[t];
 }
 
 void push(int x)
@@ -39,7 +39,7 @@ void push(int x)
 		return;
 	}
 
-	stact_array[t] = x;
+	stack_array[t] = x;
 	t = t + 1; 
 }
 
@@ -48,6 +48,6 @@ void print_stack()
 	int i;
 	for (i = 0; i < t; i++)
 	{
-		printf("stack index : %d     item : %c\n", i, stact_array[i]);
+		printf("stack index : %d     item : %c\n", i, stack_array[i]);
 	}
 }

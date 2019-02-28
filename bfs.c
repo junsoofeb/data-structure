@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-#define N 10 // NÀº vertexÀÇ °³¼ö
+#define N 10 // Nì€ vertexì˜ ê°œìˆ˜
 
 struct node 
 {
@@ -14,13 +14,21 @@ enum state_of_vertices
 };
 
 struct node * adj_list[N];
-int state[N]; // »óÅÂ ÀúÀå¿ë ¹è¿­
-int parent[N]; // ºÎ¸ğ ÀúÀå¿ë ¹è¿­
-int queue[N]; // BFS¿¡ »ç¿ëÇÒ Å¥
+int state[N]; // ìƒíƒœ ì €ì¥ìš© ë°°ì—´
+int parent[N]; // ë¶€ëª¨ ì €ì¥ìš© ë°°ì—´
+int queue[N]; // BFSì— ì‚¬ìš©í•  í
 int f, r; // f = (queue index of front) -1 , r = queue index of rear
 
+void init_adj_list() // ëª¨ë‘ NULLí¬ì¸í„°ë¡œ ì´ˆê¸°í™”
+{
+  int i,j;
+  struct node *p;
 
-void init_state() // ¸ğµÎ ¹æ¹®ÇÏÁö ¾ÊÀº »óÅÂ·Î ÃÊ±âÈ­
+  for (i=0; i<N; i++)
+    adj_list[i]=NULL;
+}
+
+void init_state() // ëª¨ë‘ ë°©ë¬¸í•˜ì§€ ì•Šì€ ìƒíƒœë¡œ ì´ˆê¸°í™”
 {
 	int i;
 	for (i = 0; i < N; i++)
@@ -28,7 +36,7 @@ void init_state() // ¸ğµÎ ¹æ¹®ÇÏÁö ¾ÊÀº »óÅÂ·Î ÃÊ±âÈ­
 }
 
 
-void init_parent() // ºÎ¸ğ°¡ ¾ø´Â »óÅÂ(-1)·Î ÃÊ±âÈ­
+void init_parent() // ë¶€ëª¨ê°€ ì—†ëŠ” ìƒíƒœ(-1)ë¡œ ì´ˆê¸°í™”
 {
 	int i;
 	for (i = 0; i < N; i++)
@@ -36,7 +44,7 @@ void init_parent() // ºÎ¸ğ°¡ ¾ø´Â »óÅÂ(-1)·Î ÃÊ±âÈ­
 }
 
 
-void init_queue()
+void init_queue() // íì˜ ì›ì†Œì™€ ì¸ë±ìŠ¤ ì´ˆê¸°í™”
 {
 	int i;
 	for (i = 0; i < N; i++)
@@ -72,9 +80,9 @@ int BFS(int start, int goal)
 	init_parent();
 	init_queue();
 	init_state();
-	int current = 0; // ÇöÀç »óÅÂ¸¦ ÀúÀåÇÒ º¯¼ö
+	int current = 0; // í˜„ì¬ ìƒíƒœë¥¼ ì €ì¥í•  ë³€ìˆ˜
 	int v = 0;
-	struct node* i; // ÃÊ±â»óÅÂ À¯ÁöÇÏ±âÀ§ÇØ i·Î ÀÌµ¿
+	struct node* i; // ì´ˆê¸°ìƒíƒœ ìœ ì§€í•˜ê¸°ìœ„í•´ ië¡œ ì´ë™
 	state[start] = DISCOVERED;
 	push(start);
 	while ((r - f) > 0) // while(queue is not empty)
