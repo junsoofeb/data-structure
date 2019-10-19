@@ -39,8 +39,8 @@ for i in range(5):
 
 print("현재 스택 >>", stack)
 
-for i in range(0, 5, 2):
-    print(f"스택에서 {i} pop!")
+for i in range(3):
+    print(f"스택에서 3개 pop!")
     stack.pop()
 
 print("현재 스택 >>", stack)
