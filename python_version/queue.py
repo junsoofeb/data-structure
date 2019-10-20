@@ -45,3 +45,20 @@ for i in range(3):
     queue.dequeue()
 
 print("현재 큐 >>", queue)
+
+'''
+실행결과
+
+큐 비어있는가? >> True
+큐에 0 enqueue!
+큐에 1 enqueue!
+큐에 2 enqueue!
+큐에 3 enqueue!
+큐에 4 enqueue!
+현재 큐 >> [4, 3, 2, 1, 0]
+큐에서 3개 pop!
+큐에서 3개 pop!
+큐에서 3개 pop!
+현재 큐 >> [4, 3]
+
+'''

@@ -39,8 +39,26 @@ for i in range(5):
 
 print("현재 스택 >>", stack)
 
-for i in range(3):
+for i in range(0, 5, 2):
     print(f"스택에서 3개 pop!")
     stack.pop()
 
 print("현재 스택 >>", stack)
+
+
+'''
+실행결과
+
+스택 비어있는가? >> True
+스택에 0 push!
+스택에 1 push!
+스택에 2 push!
+스택에 3 push!
+스택에 4 push!
+현재 스택 >> [0, 1, 2, 3, 4]
+스택에서 3개 pop!
+스택에서 3개 pop!
+스택에서 3개 pop!
+현재 스택 >> [0, 1]
+
+'''
